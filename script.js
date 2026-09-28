@@ -248,6 +248,19 @@ function confirmarFecha() {
 
     }
 
+    if (
+    fecha < FECHA_MINIMA ||
+    fecha > FECHA_MAXIMA
+) {
+
+    error.innerText =
+        "Solo puedes escoger del 12 al 31 de octubre.";
+
+    document.getElementById("fecha").value = "";
+
+    return;
+}
+
 
     if (!hora) {
 
