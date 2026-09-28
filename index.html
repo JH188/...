@@ -1,401 +1,385 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Tengo una pregunta para ti.</title>
+<head>
+  <meta charset="UTF-8" />
 
-    <link rel="stylesheet" href="style.css?v=8" />
-  </head>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
 
-  <body>
+  <title>Tengo una pregunta para ti.</title>
 
-    <main class="contenedor">
-
-      <!-- INICIO -->
-      <section class="pantalla activa" id="pantalla1">
-
-        <div class="tarjeta">
-
-          <p class="detalle">
-            Tengo una pregunta para ti...
-          </p>
-
-          <h1>
-            ¿Te animas a salir conmigo?
-          </h1>
-
-          <p class="descripcion">
-            Tengo un plan que creo que te va a gustar.
-            <br />
-            Solo dime si te animas y yo me encargo del resto 🥺
-          </p>
+  <link rel="stylesheet" href="style.css?v=9" />
+</head>
 
 
-          <div class="botones">
+<body>
 
-            <button
-              id="btnSi"
-              class="boton principal"
-            >
-              Sí, me animo 🤩
-            </button>
+  <main class="contenedor">
 
 
-            <button
-              id="btnNo"
-              class="boton secundario"
-            >
-              No puedo :(
-            </button>
+    <!-- =========================
+         INICIO
+    ========================== -->
 
-          </div>
+    <section
+      class="pantalla activa"
+      id="pantalla1"
+    >
+
+      <div class="tarjeta">
+
+        <p class="detalle">
+          Tengo una pregunta para ti...
+        </p>
+
+        <h1>
+          ¿Te animas a salir conmigo?
+        </h1>
+
+        <p class="descripcion">
+
+          Tengo un plan que creo que te va a gustar.
+
+          <br />
+
+          Solo dime si te animas y yo me encargo del resto 🥺
+
+        </p>
 
 
-          <p
-            id="mensajeNo"
-            class="mensaje"
-          ></p>
+        <div class="botones">
 
-        </div>
-
-      </section>
-
-
-      <!-- CUANDO DICE SÍ -->
-      <section
-        class="pantalla"
-        id="pantalla2"
-      >
-
-        <div class="tarjeta">
-
-          <p class="detalle">
-            🥺
-          </p>
-
-          <h1>
-            Sabía que aceptarías ☺️
-          </h1>
-
-          <p class="descripcion">
-            Ahora falta saber qué día puedes.
-          </p>
+          <button
+            id="btnSi"
+            class="boton principal"
+            type="button"
+          >
+            Sí, me animo 🤩
+          </button>
 
 
           <button
-            class="boton principal"
-            onclick="mostrarPantalla(3)"
+            id="btnNo"
+            class="boton secundario"
+            type="button"
           >
-            Siguiente
+            No puedo :(
           </button>
 
         </div>
 
-      </section>
+
+        <p
+          id="mensajeNo"
+          class="mensaje"
+        ></p>
+
+      </div>
+
+    </section>
 
 
-      <!-- FECHA Y HORA -->
-      <section
-        class="pantalla"
-        id="pantalla3"
-      >
 
-        <div class="tarjeta">
+    <!-- =========================
+         CUANDO DICE SÍ
+    ========================== -->
 
-          <p class="detalle">
-            Ahora tú eliges
-          </p>
+    <section
+      class="pantalla"
+      id="pantalla2"
+    >
 
-          <h1>
-            ¿Qué día estás libre?
-          </h1>
+      <div class="tarjeta">
 
-          <p class="descripcion">
-            Escoge el día que te quede mejor del mes de octubre.
-          </p>
+        <p class="detalle">
+          🥺
+        </p>
+
+        <h1>
+          Sabía que aceptarías ☺️
+        </h1>
+
+        <p class="descripcion">
+          Ahora falta saber qué día puedes.
+        </p>
 
 
-          <div class="formulario">
+        <button
+          class="boton principal"
+          type="button"
+          onclick="mostrarPantalla(3)"
+        >
+          Siguiente
+        </button>
 
-            <!-- FECHA -->
-            <label for="fecha">
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FECHA Y HORA
+    ========================== -->
+
+    <section
+      class="pantalla"
+      id="pantalla3"
+    >
+
+      <div class="tarjeta">
+
+        <p class="detalle">
+          Ahora tú eliges
+        </p>
+
+        <h1>
+          ¿Qué día estás libre?
+        </h1>
+
+        <p class="descripcion">
+          Escoge un día del 12 al 31 de octubre.
+        </p>
+
+
+        <div class="formulario">
+
+
+          <!-- FECHA -->
+
+          <label for="fecha">
+            Día
+          </label>
+
+
+          <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            min="2026-10-12"
+            max="2026-10-31"
+            required
+          />
+
+
+          <!-- HORA -->
+
+          <label for="hora">
+            Hora
+          </label>
+
+
+          <select
+            id="hora"
+            name="hora"
+            required
+          >
+
+            <option value="">
+              Escoge una hora
+            </option>
+
+            <option value="5:00 p. m.">
+              5:00 p. m.
+            </option>
+
+            <option value="5:30 p. m.">
+              5:30 p. m.
+            </option>
+
+            <option value="6:00 p. m.">
+              6:00 p. m.
+            </option>
+
+            <option value="6:30 p. m.">
+              6:30 p. m.
+            </option>
+
+            <option value="7:00 p. m.">
+              7:00 p. m.
+            </option>
+
+            <option value="7:30 p. m.">
+              7:30 p. m.
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <p
+          id="error"
+          class="error"
+        ></p>
+
+
+        <button
+          class="boton principal"
+          type="button"
+          onclick="confirmarFecha()"
+        >
+          Confirmar
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL
+    ========================== -->
+
+    <section
+      class="pantalla"
+      id="pantalla4"
+    >
+
+      <div class="tarjeta">
+
+        <p class="detalle">
+          Entonces...
+        </p>
+
+
+        <h1>
+          Ya tenemos plan 🥹
+        </h1>
+
+
+        <div class="resumen">
+
+          <div>
+
+            <span>
               Día
-            </label>
+            </span>
 
-            <select id="fecha">
+            <strong id="fechaFinal">
+              -
+            </strong>
 
-              <option value="">
-                Escoge un día
-              </option>
-
-              <option value="2026-10-12">
-                Lunes 12 de octubre
-              </option>
-
-              <option value="2026-10-13">
-                Martes 13 de octubre
-              </option>
-
-              <option value="2026-10-14">
-                Miércoles 14 de octubre
-              </option>
-
-              <option value="2026-10-15">
-                Jueves 15 de octubre
-              </option>
-
-              <option value="2026-10-16">
-                Viernes 16 de octubre
-              </option>
-
-              <option value="2026-10-17">
-                Sábado 17 de octubre
-              </option>
-
-              <option value="2026-10-18">
-                Domingo 18 de octubre
-              </option>
-
-              <option value="2026-10-19">
-                Lunes 19 de octubre
-              </option>
-
-              <option value="2026-10-20">
-                Martes 20 de octubre
-              </option>
-
-              <option value="2026-10-21">
-                Miércoles 21 de octubre
-              </option>
-
-              <option value="2026-10-22">
-                Jueves 22 de octubre
-              </option>
-
-              <option value="2026-10-23">
-                Viernes 23 de octubre
-              </option>
-
-              <option value="2026-10-24">
-                Sábado 24 de octubre
-              </option>
-
-              <option value="2026-10-25">
-                Domingo 25 de octubre
-              </option>
-
-              <option value="2026-10-26">
-                Lunes 26 de octubre
-              </option>
-
-              <option value="2026-10-27">
-                Martes 27 de octubre
-              </option>
-
-              <option value="2026-10-28">
-                Miércoles 28 de octubre
-              </option>
-
-              <option value="2026-10-29">
-                Jueves 29 de octubre
-              </option>
-
-              <option value="2026-10-30">
-                Viernes 30 de octubre
-              </option>
-
-              <option value="2026-10-31">
-                Sábado 31 de octubre
-              </option>
-
-            </select>
+          </div>
 
 
-            <!-- HORA -->
-            <label for="hora">
+          <div>
+
+            <span>
               Hora
-            </label>
+            </span>
 
-            <select id="hora">
-
-              <option value="">
-                Escoge una hora
-              </option>
-
-              <option value="5:00 p. m.">
-                5:00 p. m.
-              </option>
-
-              <option value="5:30 p. m.">
-                5:30 p. m.
-              </option>
-
-              <option value="6:00 p. m.">
-                6:00 p. m.
-              </option>
-
-              <option value="6:30 p. m.">
-                6:30 p. m.
-              </option>
-
-              <option value="7:00 p. m.">
-                7:00 p. m.
-              </option>
-
-              <option value="7:30 p. m.">
-                7:30 p. m.
-              </option>
-
-            </select>
+            <strong id="horaFinal">
+              -
+            </strong>
 
           </div>
 
+        </div>
 
-          <p
-            id="error"
-            class="error"
-          ></p>
 
+
+        <div class="revelacion">
+
+          <p class="pista">
+            Una pequeña pista del lugar...
+          </p>
+
+
+          <img
+            src="img/lugar.jpg"
+            alt="Una pista del lugar"
+            class="imagen-lugar"
+          />
+
+
+          <p>
+
+            El resto todavía es sorpresa 👀
+
+            <br />
+
+            Yo me encargo de todo.
+
+          </p>
+
+        </div>
+
+
+
+        <p class="texto-confirmacion">
+          🥺☺️
+        </p>
+
+
+        <button
+          class="boton whatsapp"
+          type="button"
+          onclick="enviarWhatsApp()"
+        >
+          Si todo está bien, haz clic aquí ☺️
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SI DICE NO
+    ========================== -->
+
+    <section
+      class="pantalla"
+      id="pantallaNo"
+    >
+
+      <div class="tarjeta">
+
+        <h1>
+          Está bien, comprendo :(
+        </h1>
+
+
+        <p class="descripcion">
+
+          Igual tenía que intentarlo.
+
+          <br />
+          <br />
+
+          Será para otra ocasión 🥹
+
+        </p>
+
+
+        <div class="volver-container">
 
           <button
-            class="boton principal"
-            onclick="confirmarFecha()"
+            class="boton-volver"
+            type="button"
+            onclick="mostrarPantalla(1)"
           >
-            Confirmar
+            Volver
           </button>
 
         </div>
 
-      </section>
+      </div>
+
+    </section>
 
 
-      <!-- FINAL -->
-      <section
-        class="pantalla"
-        id="pantalla4"
-      >
-
-        <div class="tarjeta">
-
-          <p class="detalle">
-            Entonces...
-          </p>
-
-          <h1>
-            Ya tenemos plan 🥹
-          </h1>
+  </main>
 
 
-          <div class="resumen">
+  <script src="script.js?v=9"></script>
 
-            <div>
+</body>
 
-              <span>
-                Día
-              </span>
-
-              <strong id="fechaFinal">
-                -
-              </strong>
-
-            </div>
-
-
-            <div>
-
-              <span>
-                Hora
-              </span>
-
-              <strong id="horaFinal">
-                -
-              </strong>
-
-            </div>
-
-          </div>
-
-
-          <div class="revelacion">
-
-            <p class="pista">
-              Una pequeña pista del lugar...
-            </p>
-
-
-            <img
-              src="img/lugar.jpg"
-              alt="Una pista del lugar"
-              class="imagen-lugar"
-            />
-
-
-            <p>
-              El resto todavía es sorpresa 👀
-              <br />
-              Yo me encargo de todo.
-            </p>
-
-          </div>
-
-
-          <p class="texto-confirmacion">
-            🥺☺️
-          </p>
-
-
-          <button
-            class="boton whatsapp"
-            onclick="enviarWhatsApp()"
-          >
-            Si todo está bien, haz clic aquí ☺️
-          </button>
-
-        </div>
-
-      </section>
-
-
-      <!-- SI DICE NO -->
-      <section
-        class="pantalla"
-        id="pantallaNo"
-      >
-
-        <div class="tarjeta">
-
-          <h1>
-            Está bien, comprendo :(
-          </h1>
-
-          <p class="descripcion">
-            Igual tenía que intentarlo.
-            <br /><br />
-            Será para otra ocasión 🥹
-          </p>
-
-
-          <div class="volver-container">
-
-            <button
-              class="boton-volver"
-              onclick="mostrarPantalla(1)"
-            >
-              Volver
-            </button>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-
-
-    <script src="script.js?v=8"></script>
-
-  </body>
 </html>
