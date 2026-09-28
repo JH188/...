@@ -189,15 +189,36 @@ function mostrarPantalla(numero) {
 // FECHAS DISPONIBLES
 // ==============================
 
-const fechaInput =
-    document.getElementById("fecha");
+const fechaInput = document.getElementById("fecha");
+
+const FECHA_MINIMA = "2026-10-12";
+const FECHA_MAXIMA = "2026-10-31";
+
+fechaInput.min = FECHA_MINIMA;
+fechaInput.max = FECHA_MAXIMA;
 
 
-// Desde el 12 de octubre
-fechaInput.min = "2026-10-12";
+// IMPORTANTE PARA IPHONE
+fechaInput.addEventListener("change", function () {
 
-// Hasta el final de octubre
-fechaInput.max = "2026-10-31";
+    const error = document.getElementById("error");
+
+    if (
+        fechaInput.value < FECHA_MINIMA ||
+        fechaInput.value > FECHA_MAXIMA
+    ) {
+
+        error.innerText =
+            "Escoge una fecha del 12 al 31 de octubre.";
+
+        fechaInput.value = "";
+
+        return;
+    }
+
+    error.innerText = "";
+
+});
 
 
 // ==============================
