@@ -7,7 +7,24 @@ const btnNo = document.getElementById("btnNo");
 const mensajeNo = document.getElementById("mensajeNo");
 
 
+// ==============================
+// EMOJIS EN UNICODE
+// ==============================
+
+const emojiCarita = "\uD83E\uDD7A";       // 🥺
+const emojiLlorando = "\uD83D\uDE2D";     // 😭
+const emojiTriste = "\uD83D\uDE14";       // 😔
+const emojiSonrisa = "\uD83D\uDE0A";      // 😊
+const emojiBrillo = "\u2728";             // ✨
+const emojiCalendario = "\uD83D\uDCC5";   // 📅
+const emojiReloj = "\uD83D\uDD52";        // 🕒
+const emojiTimido = "\uD83E\uDD2D";       // 🤭
+const emojiOjos = "\uD83D\uDC40";         // 👀
+
+
+// ==============================
 // BOTÓN SÍ
+// ==============================
 
 btnSi.addEventListener("click", function () {
 
@@ -16,9 +33,12 @@ btnSi.addEventListener("click", function () {
 });
 
 
+// ==============================
 // BOTÓN NO
+// ==============================
 
 btnNo.addEventListener("mouseenter", moverNo);
+
 
 btnNo.addEventListener("touchstart", function (e) {
 
@@ -31,6 +51,7 @@ btnNo.addEventListener("touchstart", function (e) {
     }
 
 });
+
 
 btnNo.addEventListener("click", function () {
 
@@ -57,7 +78,9 @@ function moverNo() {
         return;
     }
 
+
     intentosNo++;
+
 
     const zona =
         document.querySelector(".botones");
@@ -85,9 +108,13 @@ function moverNo() {
 
 
     const mensajes = [
-        "¿Segura?",
-        "Casi jajaja",
-        "Ya, último intento"
+
+        "¿Segura? " + emojiCarita,
+
+        "Casi jajaja " + emojiLlorando,
+
+        "Ya, último intento " + emojiTriste
+
     ];
 
 
@@ -97,7 +124,9 @@ function moverNo() {
 }
 
 
+// ==============================
 // CAMBIAR PANTALLAS
+// ==============================
 
 function mostrarPantalla(numero) {
 
@@ -131,48 +160,59 @@ function mostrarPantalla(numero) {
         .classList.add("activa");
 
 
+    // Si vuelve al inicio, reinicia el botón No
+    if (numero === 1) {
+
+        intentosNo = 0;
+
+        btnNo.style.position = "relative";
+        btnNo.style.left = "auto";
+        btnNo.style.top = "auto";
+
+        mensajeNo.innerText = "";
+
+    }
+
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
 
 
-// EVITAR FECHAS ANTERIORES A HOY
+// ==============================
+// FECHAS DISPONIBLES
+// ==============================
 
 const fechaInput =
     document.getElementById("fecha");
 
-const hoy =
-    new Date();
 
-const año =
-    hoy.getFullYear();
-
-const mes =
-    String(hoy.getMonth() + 1)
-        .padStart(2, "0");
-
-const dia =
-    String(hoy.getDate())
-        .padStart(2, "0");
-
-
+// Desde el 12 de octubre
 fechaInput.min = "2026-10-12";
 
-read;
+// Hasta el final de octubre
+fechaInput.max = "2026-10-31";
 
 
-// CONFIRMAR
+// ==============================
+// CONFIRMAR FECHA Y HORA
+// ==============================
 
 function confirmarFecha() {
 
     const fecha =
         document.getElementById("fecha").value;
 
+
     const hora =
         document.getElementById("hora").value;
+
 
     const error =
         document.getElementById("error");
@@ -181,7 +221,7 @@ function confirmarFecha() {
     if (!fecha) {
 
         error.innerText =
-            "Escoge un día.";
+            "Escoge un día " + emojiCarita;
 
         return;
 
@@ -191,7 +231,7 @@ function confirmarFecha() {
     if (!hora) {
 
         error.innerText =
-            "Escoge una hora.";
+            "Escoge una hora " + emojiSonrisa;
 
         return;
 
@@ -218,7 +258,9 @@ function confirmarFecha() {
 }
 
 
+// ==============================
 // CONVERTIR FECHA
+// ==============================
 
 function convertirFecha(fecha) {
 
@@ -228,9 +270,9 @@ function convertirFecha(fecha) {
 
     const nuevaFecha =
         new Date(
-            partes[0],
-            partes[1] - 1,
-            partes[2]
+            Number(partes[0]),
+            Number(partes[1]) - 1,
+            Number(partes[2])
         );
 
 
@@ -244,32 +286,51 @@ function convertirFecha(fecha) {
     );
 
 }
+
+
+// ==============================
+// ENVIAR A WHATSAPP
+// ==============================
+
 function enviarWhatsApp() {
 
-    const fecha =
-        document.getElementById("fechaFinal").innerText;
+    const fecha = document.getElementById("fechaFinal").innerText;
+    const hora = document.getElementById("horaFinal").innerText;
 
-    const hora =
-        document.getElementById("horaFinal").innerText;
+    // Emojis creados directamente por su código Unicode
+    const sonrisa = String.fromCodePoint(0x1F60A);     // 😊
+    const carita = String.fromCodePoint(0x1F97A);      // 🥺
+    const brillo = String.fromCodePoint(0x2728);       // ✨
+    const calendario = String.fromCodePoint(0x1F4C5);  // 📅
+    const reloj = String.fromCodePoint(0x1F552);       // 🕒
+    const timido = String.fromCodePoint(0x1F92D);      // 🤭
+    const ojos = String.fromCodePoint(0x1F440);        // 👀
 
     const mensaje =
-`Hola 😊
-
-Ya elegí para nuestra salida.
-
-Día: ${fecha}
-Hora: ${hora}
-
-Así que ya tenemos plan ☺️.
-Ahora queda de tu parte la sorpresa 👀`;
+        "Holis, Jonathan " + sonrisa +
+        "\n\n" +
+        "Ya elegí para nuestra salida " + carita + brillo +
+        "\n\n" +
+        calendario + " Día: " + fecha +
+        "\n" +
+        reloj + " Hora: " + hora +
+        "\n\n" +
+        "Entonces ya tenemos plan " + timido +
+        "\n\n" +
+        "Ahora queda de tu parte la sorpresa " + ojos + brillo +
+        "\n\n" +
+        "Nos vemos ese día " + sonrisa;
 
     const numero = "51944200967";
 
+    const parametros = new URLSearchParams();
+
+    parametros.set("phone", numero);
+    parametros.set("text", mensaje);
+
     const url =
-        "https://wa.me/" +
-        numero +
-        "?text=" +
-        encodeURIComponent(mensaje);
+        "https://api.whatsapp.com/send?" +
+        parametros.toString();
 
     window.open(url, "_blank");
 }
