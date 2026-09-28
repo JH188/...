@@ -8,18 +8,18 @@ const mensajeNo = document.getElementById("mensajeNo");
 
 
 // ==============================
-// EMOJIS EN UNICODE
+// EMOJIS
 // ==============================
 
-const emojiCarita = "\uD83E\uDD7A";       // 🥺
-const emojiLlorando = "\uD83D\uDE2D";     // 😭
-const emojiTriste = "\uD83D\uDE14";       // 😔
-const emojiSonrisa = "\uD83D\uDE0A";      // 😊
-const emojiBrillo = "\u2728";             // ✨
-const emojiCalendario = "\uD83D\uDCC5";   // 📅
-const emojiReloj = "\uD83D\uDD52";        // 🕒
-const emojiTimido = "\uD83E\uDD2D";       // 🤭
-const emojiOjos = "\uD83D\uDC40";         // 👀
+const emojiCarita = "\uD83E\uDD7A";
+const emojiLlorando = "\uD83D\uDE2D";
+const emojiTriste = "\uD83D\uDE14";
+const emojiSonrisa = "\uD83D\uDE0A";
+const emojiBrillo = "\u2728";
+const emojiCalendario = "\uD83D\uDCC5";
+const emojiReloj = "\uD83D\uDD52";
+const emojiTimido = "\uD83E\uDD2D";
+const emojiOjos = "\uD83D\uDC40";
 
 
 // ==============================
@@ -37,32 +37,45 @@ btnSi.addEventListener("click", function () {
 // BOTÓN NO
 // ==============================
 
-btnNo.addEventListener("mouseenter", moverNo);
+btnNo.addEventListener(
+    "mouseenter",
+    moverNo
+);
 
 
-btnNo.addEventListener("touchstart", function (e) {
+btnNo.addEventListener(
+    "touchstart",
+    function (e) {
 
-    if (intentosNo < maxIntentos) {
+        if (intentosNo < maxIntentos) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        moverNo();
+            moverNo();
 
-    }
-
-});
-
-
-btnNo.addEventListener("click", function () {
-
-    if (intentosNo >= maxIntentos) {
-
-        mostrarPantalla("No");
+        }
 
     }
+);
 
-});
 
+btnNo.addEventListener(
+    "click",
+    function () {
+
+        if (intentosNo >= maxIntentos) {
+
+            mostrarPantalla("No");
+
+        }
+
+    }
+);
+
+
+// ==============================
+// MOVER BOTÓN NO
+// ==============================
 
 function moverNo() {
 
@@ -76,6 +89,7 @@ function moverNo() {
             "Ya, ahora sí te dejo jajaja";
 
         return;
+
     }
 
 
@@ -87,33 +101,47 @@ function moverNo() {
 
 
     const maxX =
-        zona.clientWidth - btnNo.offsetWidth;
+        zona.clientWidth -
+        btnNo.offsetWidth;
+
 
     const maxY =
-        zona.clientHeight - btnNo.offsetHeight;
+        zona.clientHeight -
+        btnNo.offsetHeight;
 
 
     const x =
-        Math.random() * Math.max(0, maxX);
+        Math.random() *
+        Math.max(0, maxX);
+
 
     const y =
-        Math.random() * Math.max(0, maxY);
+        Math.random() *
+        Math.max(0, maxY);
 
 
-    btnNo.style.position = "absolute";
+    btnNo.style.position =
+        "absolute";
 
-    btnNo.style.left = x + "px";
 
-    btnNo.style.top = y + "px";
+    btnNo.style.left =
+        x + "px";
+
+
+    btnNo.style.top =
+        y + "px";
 
 
     const mensajes = [
 
-        "¿Segura? " + emojiCarita,
+        "¿Segura? " +
+        emojiCarita,
 
-        "Casi jajaja " + emojiLlorando,
+        "Casi jajaja " +
+        emojiLlorando,
 
-        "Ya, último intento " + emojiTriste
+        "Ya, último intento " +
+        emojiTriste
 
     ];
 
@@ -131,14 +159,20 @@ function moverNo() {
 function mostrarPantalla(numero) {
 
     const pantallas =
-        document.querySelectorAll(".pantalla");
+        document.querySelectorAll(
+            ".pantalla"
+        );
 
 
-    pantallas.forEach(function (pantalla) {
+    pantallas.forEach(
+        function (pantalla) {
 
-        pantalla.classList.remove("activa");
+            pantalla.classList.remove(
+                "activa"
+            );
 
-    });
+        }
+    );
 
 
     let id;
@@ -150,7 +184,9 @@ function mostrarPantalla(numero) {
 
     } else {
 
-        id = "pantalla" + numero;
+        id =
+            "pantalla" +
+            numero;
 
     }
 
@@ -160,16 +196,24 @@ function mostrarPantalla(numero) {
         .classList.add("activa");
 
 
-    // Si vuelve al inicio, reinicia el botón No
+    // REINICIAR SI VUELVE AL INICIO
     if (numero === 1) {
 
         intentosNo = 0;
 
-        btnNo.style.position = "relative";
-        btnNo.style.left = "auto";
-        btnNo.style.top = "auto";
 
-        mensajeNo.innerText = "";
+        btnNo.style.position =
+            "relative";
+
+        btnNo.style.left =
+            "auto";
+
+        btnNo.style.top =
+            "auto";
+
+
+        mensajeNo.innerText =
+            "";
 
     }
 
@@ -186,86 +230,45 @@ function mostrarPantalla(numero) {
 
 
 // ==============================
-// FECHAS DISPONIBLES
-// ==============================
-
-const fechaInput = document.getElementById("fecha");
-
-const FECHA_MINIMA = "2026-10-12";
-const FECHA_MAXIMA = "2026-10-31";
-
-fechaInput.min = FECHA_MINIMA;
-fechaInput.max = FECHA_MAXIMA;
-
-
-// IMPORTANTE PARA IPHONE
-fechaInput.addEventListener("change", function () {
-
-    const error = document.getElementById("error");
-
-    if (
-        fechaInput.value < FECHA_MINIMA ||
-        fechaInput.value > FECHA_MAXIMA
-    ) {
-
-        error.innerText =
-            "Escoge una fecha del 12 al 31 de octubre.";
-
-        fechaInput.value = "";
-
-        return;
-    }
-
-    error.innerText = "";
-
-});
-
-
-// ==============================
 // CONFIRMAR FECHA Y HORA
 // ==============================
 
 function confirmarFecha() {
 
     const fecha =
-        document.getElementById("fecha").value;
+        document.getElementById(
+            "fecha"
+        ).value;
 
 
     const hora =
-        document.getElementById("hora").value;
+        document.getElementById(
+            "hora"
+        ).value;
 
 
     const error =
-        document.getElementById("error");
+        document.getElementById(
+            "error"
+        );
 
 
     if (!fecha) {
 
         error.innerText =
-            "Escoge un día " + emojiCarita;
+            "Escoge un día " +
+            emojiCarita;
 
         return;
 
     }
 
-    if (
-    fecha < FECHA_MINIMA ||
-    fecha > FECHA_MAXIMA
-) {
-
-    error.innerText =
-        "Solo puedes escoger del 12 al 31 de octubre.";
-
-    document.getElementById("fecha").value = "";
-
-    return;
-}
-
 
     if (!hora) {
 
         error.innerText =
-            "Escoge una hora " + emojiSonrisa;
+            "Escoge una hora " +
+            emojiSonrisa;
 
         return;
 
@@ -313,9 +316,13 @@ function convertirFecha(fecha) {
     return nuevaFecha.toLocaleDateString(
         "es-PE",
         {
+
             weekday: "long",
+
             day: "numeric",
+
             month: "long"
+
         }
     );
 
@@ -328,43 +335,128 @@ function convertirFecha(fecha) {
 
 function enviarWhatsApp() {
 
-    const fecha = document.getElementById("fechaFinal").innerText;
-    const hora = document.getElementById("horaFinal").innerText;
+    const fecha =
+        document.getElementById(
+            "fechaFinal"
+        ).innerText;
 
-    // Emojis creados directamente por su código Unicode
-    const sonrisa = String.fromCodePoint(0x1F60A);     // 😊
-    const carita = String.fromCodePoint(0x1F97A);      // 🥺
-    const brillo = String.fromCodePoint(0x2728);       // ✨
-    const calendario = String.fromCodePoint(0x1F4C5);  // 📅
-    const reloj = String.fromCodePoint(0x1F552);       // 🕒
-    const timido = String.fromCodePoint(0x1F92D);      // 🤭
-    const ojos = String.fromCodePoint(0x1F440);        // 👀
+
+    const hora =
+        document.getElementById(
+            "horaFinal"
+        ).innerText;
+
+
+    const sonrisa =
+        String.fromCodePoint(
+            0x1F60A
+        );
+
+
+    const carita =
+        String.fromCodePoint(
+            0x1F97A
+        );
+
+
+    const brillo =
+        String.fromCodePoint(
+            0x2728
+        );
+
+
+    const calendario =
+        String.fromCodePoint(
+            0x1F4C5
+        );
+
+
+    const reloj =
+        String.fromCodePoint(
+            0x1F552
+        );
+
+
+    const timido =
+        String.fromCodePoint(
+            0x1F92D
+        );
+
+
+    const ojos =
+        String.fromCodePoint(
+            0x1F440
+        );
+
 
     const mensaje =
-        "Holis, Jonathan " + sonrisa +
+
+        "Holis, Jonathan " +
+        sonrisa +
+
         "\n\n" +
-        "Ya elegí para nuestra salida " + carita + brillo +
+
+        "Ya elegí para nuestra salida " +
+        carita +
+        brillo +
+
         "\n\n" +
-        calendario + " Día: " + fecha +
+
+        calendario +
+        " Día: " +
+        fecha +
+
         "\n" +
-        reloj + " Hora: " + hora +
-        "\n\n" +
-        "Entonces ya tenemos plan " + timido +
-        "\n\n" +
-        "Ahora queda de tu parte la sorpresa " + ojos + brillo +
-        "\n\n" +
-        "Nos vemos ese día " + sonrisa;
 
-    const numero = "51944200967";
+        reloj +
+        " Hora: " +
+        hora +
 
-    const parametros = new URLSearchParams();
+        "\n\n" +
 
-    parametros.set("phone", numero);
-    parametros.set("text", mensaje);
+        "Entonces ya tenemos plan " +
+        timido +
+
+        "\n\n" +
+
+        "Ahora queda de tu parte la sorpresa " +
+        ojos +
+        brillo +
+
+        "\n\n" +
+
+        "Nos vemos ese día " +
+        sonrisa;
+
+
+    const numero =
+        "51944200967";
+
+
+    const parametros =
+        new URLSearchParams();
+
+
+    parametros.set(
+        "phone",
+        numero
+    );
+
+
+    parametros.set(
+        "text",
+        mensaje
+    );
+
 
     const url =
         "https://api.whatsapp.com/send?" +
         parametros.toString();
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
