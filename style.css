@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'DM Sans', sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #f5eeee,
+        #eadada
+    );
+
+    color: #453939;
+}
+
+.contenedor {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.pantalla {
+    display: none;
+    width: 100%;
+
+    animation: aparecer .4s ease;
+}
+
+.pantalla.activa {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 55px rgba(70, 40, 40, .12);
+}
+
+.detalle {
+    font-size: 14px;
+
+    color: #a06f70;
+
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 33px;
+
+    color: #4a3737;
+
+    margin-bottom: 18px;
+}
+
+.descripcion {
+    color: #756262;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.botones {
+    position: relative;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.boton {
+    border: none;
+
+    padding: 13px 30px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.boton:hover {
+    transform: translateY(-2px);
+}
+
+.principal {
+    background: #9e686b;
+
+    color: white;
+}
+
+.principal:hover {
+    background: #89575a;
+}
+
+.secundario {
+    background: #eeeeee;
+
+    color: #555;
+}
+
+.mensaje {
+    min-height: 20px;
+
+    font-size: 13px;
+
+    color: #956364;
+}
+
+.formulario {
+    text-align: left;
+
+    margin-top: 20px;
+
+    margin-bottom: 5px;
+}
+
+.formulario label {
+    display: block;
+
+    margin-top: 17px;
+    margin-bottom: 7px;
+
+    font-weight: 600;
+
+    color: #574646;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    background: #fafafa;
+
+    color: #444;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #a86b6e;
+}
+
+.error {
+    min-height: 35px;
+
+    padding-top: 8px;
+
+    font-size: 13px;
+
+    color: #a25050;
+}
+
+.resumen {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin: 25px 0;
+}
+
+.resumen div {
+    background: #faf5f5;
+
+    padding: 15px 18px;
+
+    border-radius: 10px;
+
+    text-align: left;
+}
+
+.resumen span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #987a7a;
+
+    margin-bottom: 3px;
+}
+
+.resumen strong {
+    color: #4f3d3d;
+
+    font-size: 16px;
+}
+
+.revelacion {
+    background: #f2e6e6;
+
+    border-radius: 14px;
+
+    padding: 23px 18px;
+
+    margin-top: 20px;
+}
+
+.revelacion p {
+    color: #735c5c;
+
+    line-height: 1.6;
+}
+
+.revelacion h2 {
+    font-size: 23px;
+
+    color: #87585b;
+
+    margin: 8px 0 12px;
+}
+
+.final {
+    margin-top: 25px;
+
+    font-size: 15px;
+
+    color: #6b5555;
+}
+
+@media(max-width: 600px) {
+
+    .tarjeta {
+        padding: 35px 22px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+.imagen-lugar {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    margin: 15px 0 18px;
+}
+
+.pista {
+    font-size: 14px;
+
+    color: #956b6b;
+}
+
+.texto-confirmacion {
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+    color: #735c5c;
+
+    font-size: 14px;
+}
+
+.whatsapp {
+    background: #5f8f72;
+    color: white;
+
+    width: 100%;
+
+    margin-top: 5px;
+}
+
+.whatsapp:hover {
+    background: #527c63;
+}

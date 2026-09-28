@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tengo una pregunta para ti.</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="contenedor">
+      <!-- INICIO -->
+      <section class="pantalla activa" id="pantalla1">
+        <div class="tarjeta">
+          <p class="detalle">Tengo una pregunta para ti...</p>
+
+          <h1>¿Te animas a salir conmigo?</h1>
+
+          <p class="descripcion">
+            Tengo un plan que creo que te va a gustar.
+            <br />
+            Solo dime si te animas y yo me encargo del resto.
+          </p>
+
+          <div class="botones">
+            <button id="btnSi" class="boton principal">Sí, Me animo 🤩</button>
+
+            <button id="btnNo" class="boton secundario">No puedo :(</button>
+          </div>
+
+          <p id="mensajeNo" class="mensaje"></p>
+        </div>
+      </section>
+
+      <!-- CUANDO DICE SÍ -->
+      <section class="pantalla" id="pantalla2">
+        <div class="tarjeta">
+          <p class="detalle">🥺</p>
+
+          <h1>Sabía que aceptarías ☺️</h1>
+
+          <p class="descripcion">Ahora falta saber qué día puedes.</p>
+
+          <button class="boton principal" onclick="mostrarPantalla(3)">
+            Siguiente
+          </button>
+        </div>
+      </section>
+
+      <!-- FECHA Y HORA -->
+      <section class="pantalla" id="pantalla3">
+        <div class="tarjeta">
+          <p class="detalle">Ahora tú eliges</p>
+
+          <h1>¿Qué día estás libre?</h1>
+
+          <p class="descripcion">
+            Escoge el día que te quede mejor dle mes de octubre.
+          </p>
+
+          <div class="formulario">
+            <label for="fecha"> Día </label>
+
+            <input type="date" id="fecha" />
+
+            <label for="hora"> Hora </label>
+
+            <select id="hora">
+              <option value="">Escoge una hora</option>
+
+              <option value="5:00 p. m.">5:00 p. m.</option>
+
+              <option value="5:30 p. m.">5:30 p. m.</option>
+
+              <option value="6:00 p. m.">6:00 p. m.</option>
+
+              <option value="6:30 p. m.">6:30 p. m.</option>
+
+              <option value="7:00 p. m.">7:00 p. m.</option>
+
+              <option value="7:30 p. m.">7:30 p. m.</option>
+
+              <option value="8:00 p. m.">8:00 p. m.</option>
+            </select>
+          </div>
+
+          <p id="error" class="error"></p>
+
+          <button class="boton principal" onclick="confirmarFecha()">
+            Confirmar
+          </button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="pantalla4">
+        <div class="tarjeta">
+          <p class="detalle">Entonces...</p>
+
+          <h1>Ya tenemos plan 🥹</h1>
+
+          <div class="resumen">
+            <div>
+              <span>Día</span>
+              <strong id="fechaFinal">-</strong>
+            </div>
+
+            <div>
+              <span>Hora</span>
+              <strong id="horaFinal">-</strong>
+            </div>
+          </div>
+
+          <div class="revelacion">
+            <p class="pista">Una pequeña pista del lugar...</p>
+
+            <img
+              src="img/lugar.jpg"
+              alt="Una pista del lugar"
+              class="imagen-lugar"
+            />
+
+            <p>
+              El resto todavía es sorpresa 👀
+              <br />
+              Yo me encargo de todo.
+            </p>
+          </div>
+
+          <p class="texto-confirmacion">
+            🥺☺️
+          </p>
+
+          <button class="boton whatsapp" onclick="enviarWhatsApp()">
+            Si todo está bien, has click aqui ☺️
+          </button>
+        </div>
+      </section>
+
+      <!-- SI DICE NO -->
+      <section class="pantalla" id="pantallaNo">
+        <div class="tarjeta">
+          <h1>Está bien jajaja</h1>
+
+          <p class="descripcion">
+            Igual tenía que intentarlo.
+            <br /><br />
+            Será para otra ocasión.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
